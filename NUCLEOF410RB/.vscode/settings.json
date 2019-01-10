@@ -1,0 +1,5 @@
+{
+    "C_Cpp.errorSquiggles":"Disabled",
+    "C_Cpp.clang_format_path": "C:/msys64/mingw64/bin",
+    "C_Cpp.clang_format_sortIncludes": true,
+}

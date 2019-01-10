@@ -46,7 +46,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "led.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -73,8 +73,7 @@
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
-// LED 闪烁
-void LedToggle(uint16_t time);
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -89,7 +88,7 @@ void LedToggle(uint16_t time);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-  uint16_t temp = 0;
+  
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -124,26 +123,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-		LedToggle(50);
-    // 按键判断
-//    if(HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin) == GPIO_PIN_RESET){
-//      // HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);
-//      LedToggle(100);
-//    }else{
-//      HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
-//    }
-    // TIM5->CCR2 = 500;
-    __HAL_TIM_SET_COMPARE(&htim5, TIM_CHANNEL_2, 250);
-    // while (temp < 1000){
-    //   temp++;
-    //   TIM5->CCR2 = temp;
-    //   HAL_Delay(1);
-    // }
-    // while (temp > 100){
-    //   temp--;
-    //   TIM5->CCR2 = temp;
-    //   HAL_Delay(1);
-    // }
+    breathe_led(500);
   }
   /* USER CODE END 3 */
 }
@@ -192,18 +172,6 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-/* 用户代码 4 */
-// LED 闪烁
-void LedToggle(uint16_t time){
-	HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
-	HAL_Delay(time);
-}
-
-// 设置pwm脉宽
-void user_pwm_setvalue(uint16_t value){
-  TIM_OC_InitTypeDef sConfigOC = {0};
-  
-}
 
 /* USER CODE END 4 */
 
